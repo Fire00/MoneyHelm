@@ -6,10 +6,10 @@
 <meta name="theme-color" content="#6C5CE7"/>
 <meta name="apple-mobile-web-app-capable" content="yes"/>
 <meta name="apple-mobile-web-app-status-bar-style" content="default"/>
-<meta name="apple-mobile-web-app-title" content="Finance Planner"/>
+<meta name="apple-mobile-web-app-title" content="MoneyHelm"/>
 <link rel="manifest" href="manifest.json"/>
 <link rel="apple-touch-icon" href="icons/icon-192.png"/>
-<title>Finance Planner</title>
+<title>MoneyHelm</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -195,7 +195,7 @@ body{font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg);color:var(-
     <div class="brand">
       <div class="brand-ico">💰</div>
       <div>
-        <div class="brand-ttl">Finance Planner</div>
+        <div class="brand-ttl">MoneyHelm</div>
         <div class="brand-sub">Smart money manager</div>
       </div>
     </div>
@@ -734,7 +734,7 @@ function exportPDF(){
   if(G.goals.length){secH('GOALS');G.goals.forEach(g=>{row(g.n,fmt(Math.round(g.a/g.m))+'/mo');doc.setFontSize(7);doc.setFont('helvetica','normal');doc.setTextColor(120,130,140);doc.text(`Target: ${fmt(g.a)}  |  ${g.m} months  |  Saved: ${fmt(g.saved)} (${Math.round(g.saved/g.a*100)}%)`,pad,yp);yp+=5});yp+=2}
   const pi=gmd().per;if(pi.length){secH('PERSONAL EXPENSES');pi.forEach(p=>row(p.n,fmt(p.a)));yp+=2}
   const als=getAlerts().filter(a=>a.t==='e'||a.t==='w');if(als.length){secH('ALERTS');als.forEach(a=>{doc.setFontSize(9);doc.setFont('helvetica','bold');doc.setTextColor(225,82,82);doc.text('⚠ '+a.h,pad,yp);yp+=5;doc.setFontSize(7);doc.setFont('helvetica','normal');doc.setTextColor(100,108,112);const lns=doc.splitTextToSize(a.b,W-2*pad);doc.text(lns,pad,yp);yp+=lns.length*4+3})}
-  doc.setFontSize(7);doc.setFont('helvetica','normal');doc.setTextColor(180,190,200);doc.text('Finance Planner · Personal use only',pad,288);doc.text('Page 1',W-pad,288,{align:'right'});
+  doc.setFontSize(7);doc.setFont('helvetica','normal');doc.setTextColor(180,190,200);doc.text('MoneyHelm · Personal use only',pad,288);doc.text('Page 1',W-pad,288,{align:'right'});
   try{window.open(doc.output('bloburl'),'_blank')}catch(ex){doc.save('finance-'+ck()+'.pdf')}
   showToast('📄 PDF exported!')
 }
