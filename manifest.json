@@ -1,6 +1,6 @@
 {
-  "name": "Finance Planner",
-  "short_name": "FinancePlanner",
+  "name": "MoneyHelm",
+  "short_name": "MoneyHelm",
   "description": "Your smart monthly money manager",
   "start_url": "/index.html",
   "display": "standalone",
